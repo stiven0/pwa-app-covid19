@@ -1,0 +1,26 @@
+<header class="container-principal">
+    <section class="example-form">
+        <input 
+        placeholder="Colombia" 
+        [matAutocomplete]="auto" 
+        [formControl]="userSearch" 
+        (keyup.enter)="enterInput($event)" />
+
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option 
+            *ngFor="let pais of paisesResult" 
+            [value]="pais.nombreSP" 
+            (click)="emitPais(pais.nombreAPI, pais.nombreSP)">
+                {{ pais.nombreSP }}
+            </mat-option>
+        </mat-autocomplete>
+
+        <button mat-stroked-button (click)="abrirInfoVirus()">
+            <i class="fas fa-globe-americas fa-2x"></i>
+        </button>
+
+
+        
+
+    </section>
+</header>

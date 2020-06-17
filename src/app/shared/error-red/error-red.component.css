@@ -1,0 +1,43 @@
+
+section {
+    border: 1px solid #dadce0;
+    margin: 20px auto;
+    width: 30%;
+    border-radius: 10px;
+}
+
+section ul {
+    list-style: none;
+}
+
+section ul li {
+    margin-bottom: 10px;
+}
+
+section img {
+    width: 100%;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+section ul li i {
+    color: #FFAAAF;
+}
+
+/* responsive */
+@media screen and (max-width: 760px) {
+
+    section {
+        width: 90%;
+    }
+
+    section ul {
+        padding: 10px;
+        text-align: center;
+        font-size: 14px;
+    }
+}

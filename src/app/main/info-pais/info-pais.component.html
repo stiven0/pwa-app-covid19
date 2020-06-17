@@ -1,0 +1,91 @@
+
+<div class="contenedor-principal">
+
+    <h3 class="pais-name-esp" *ngIf="pais && !errorRed">{{ paisNameEsp }}</h3>
+
+    <!-- informacion de pais selecionado -->
+    <div class="contenedor-info-pais" *ngIf="pais && !errorRed">
+
+        <section class="total-confirmado">
+            <h4>
+                Total Confirmados
+                <i class="fas fa-male"></i>
+            </h4>
+            
+            <mat-divider></mat-divider>   
+            
+            <p>{{ pais.TotalConfirmed | number }}</p>
+        </section>
+
+        <section class="total-recuperados">
+            <h4>
+                Total Recuperados
+                <i class="fas fa-hand-rock"></i>
+            </h4>
+            
+            <mat-divider></mat-divider>   
+            
+            <p>{{ pais.TotalRecovered | number }}</p>
+        </section>
+
+        <section class="total-recuperados">
+            <h4>
+                Total Fallecidos
+                <i class="fas fa-virus"></i>
+            </h4>
+            
+            <mat-divider></mat-divider>   
+            
+            <p>{{ pais.TotalDeaths | number }}</p>
+        </section>
+
+        <section class="total-recuperados">
+            <h4>
+                Nuevos Confirmados
+                <i class="fas fa-head-side-virus"></i>
+            </h4>
+            
+            <mat-divider></mat-divider>   
+            
+            <p>{{ pais.NewConfirmed | number }}</p>
+        </section>
+
+        <section class="total-recuperados">
+            <h4>
+                Nuevos Recuperados
+                <i class="fas fa-child"></i>
+            </h4>
+            
+            <mat-divider></mat-divider>   
+            
+            <p>{{ pais.NewRecovered | number }}</p>
+        </section>
+
+        <section class="total-recuperados">
+            <h4>
+                Nuevos Fallecidos
+                <i class="fas fa-viruses"></i>
+            </h4>
+            
+            <mat-divider></mat-divider>   
+            
+            <p>{{ pais.NewDeaths | number }}</p>
+        </section>
+
+    </div>
+
+    <button mat-stroked-button color="accent" *ngIf="pais && !errorRed" (click)="openStats()">
+        Estadisticas
+        <i class="fas fa-signal"></i>
+    </button>
+
+    <small *ngIf="pais && !errorRed">Fuente de datos: 
+        <a href="https://covid19api.com/" target="_blank" 
+        [ngStyle]="{'cursor': 'pointer', 'fontWeight': '500'}">Johns Hopkins CSSE</a> 
+    </small>
+
+    <!-- error de conexion red -->
+    <app-error-red *ngIf="errorRed"></app-error-red>
+
+
+</div>

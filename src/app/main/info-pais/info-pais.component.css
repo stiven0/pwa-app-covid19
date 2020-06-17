@@ -1,0 +1,64 @@
+
+.contenedor-info-pais {
+    width: 80%;
+    margin: 13px auto;
+}
+
+.pais-name-esp {
+    font-weight: 400;
+    text-align: center;
+}
+
+.contenedor-info-pais section {
+    padding: 16px;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    margin-bottom: 32px;
+    background-color: #f0f8ff;
+    text-align: center;
+}
+
+.contenedor-info-pais section h4 {
+    font-weight: 300;
+
+}
+
+.contenedor-info-pais section h4 i {
+    margin-left: 3px;
+    color: #434747;
+}
+
+.contenedor-principal button {
+    display: block;
+    margin: auto;
+    background-color: rgb(220, 236, 236);
+    margin-bottom: 20px;
+}
+
+/* css grid */
+.contenedor-info-pais {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+small a:active {
+    color: #551A9E;
+}
+
+small {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* diseño responsive */
+@media screen and (max-width: 760px) {
+
+    .contenedor-info-pais {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+
+}

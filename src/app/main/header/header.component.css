@@ -1,0 +1,50 @@
+.container-principal {
+    background-image: url(../../../assets/img/header.jpg);
+    width: 100%;
+    padding: 20px 0px;
+}
+
+section {
+    /* border: 1px solid white; */
+    width: 50%;
+    margin: 0px auto;
+    text-align: center;
+}
+
+section input {
+    border: 1px solid #dadce0;
+    height: 48px;
+    border-radius: 24px;
+    padding: 0 12px;
+    color: #80868b;
+    margin: 4px 0;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.251);
+    background: #ffffff;
+    width: 60%;
+    outline: none;
+}
+
+section button {
+    display: block;
+    margin: 5px auto;
+}
+
+button i {
+    color: #272727;
+}
+
+/* diseño responsive */
+@media screen and (max-width: 760px) {
+
+    section input {
+        width: 100%;
+        margin: 0px;
+        box-sizing: border-box;
+    }
+
+    section {
+        width: 80%;
+    }
+
+}
+

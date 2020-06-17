@@ -1,0 +1,29 @@
+
+.container-canvas {
+    width: 85%;
+    display: block;
+    margin: auto;
+}
+
+.mat-dialog-title {
+    text-align: center;
+}
+
+.mat-spinner {
+    display: block;
+    margin: auto;  
+}
+
+/* responsive */
+@media screen and (max-width: 760px) {
+
+    .container-canvas {
+        width: 250px;
+    }
+
+    .mat-dialog-title {
+        line-height: 22px;
+    }
+
+    
+}

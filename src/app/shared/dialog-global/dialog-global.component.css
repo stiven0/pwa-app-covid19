@@ -1,0 +1,18 @@
+/* diseño responsive */
+@media screen and (max-width: 760px) {
+  .mat-dialog-title {
+    font-size: 14px;
+  }
+
+  .mat-list-item {
+    font-size: 13px;
+  }
+
+  .title-item {
+    font-size: 12px !important;
+  }
+
+  .mat-dialog-content {
+    padding: 5px;
+  }
+}
