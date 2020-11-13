@@ -1,0 +1,53 @@
+<!-- si el componente se renderiza desde el modal -->
+<div *ngIf="modal">
+    
+    <h1 mat-dialog-title *ngIf="paisNameEsp && !errorRed">Estadisticas {{ paisNameEsp }}</h1>
+
+    <mat-divider *ngIf="paisNameEsp && !errorRed"></mat-divider>
+
+    <div mat-dialog-content>
+        <div class="container-canvas" *ngIf="statsPais && !errorRed">
+            <canvas baseChart
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [colors]="lineChartColors"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"></canvas>
+        </div>
+    </div>
+    
+</div>
+
+<!-- si el componente no se renderiza desde el modal -->
+<div *ngIf="!modal">
+
+    <div>
+
+        <div class="container-canvas-two" *ngIf="statsPais && statsPais.length && !errorRed">
+            <canvas baseChart
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [colors]="lineChartColors"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"></canvas>
+        </div>
+
+        
+    </div>
+
+    <section class="container_button" *ngIf="!errorRed">
+        <button mat-stroked-button 
+                color="basic" 
+                (click)="atras()"> 
+                Atras
+        </button>
+    </section>
+
+</div>
+
+
+<!-- error de red -->
+<app-error-red *ngIf="errorRed"></app-error-red>
+
+<!-- icono de carga -->
+<mat-spinner *ngIf="!statsPais && !errorRed"></mat-spinner>

@@ -7,7 +7,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Paises } from '@interface/paises';
 import { MainService } from '@services/main.service';
 import { DialogGlobalComponent } from '@shared/dialog-global/dialog-global.component';
-import { paises } from '@settings/paises-array';
+import { paises, verifyCountryName } from '@settings/paises-array';
+import { promise } from 'protractor';
+
 
 
 @Component({
@@ -20,6 +22,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   paisesResult: Paises[] = [];
   userSearch: FormControl;
   paisesArrayMenu: Paises[];
+  paiseName: string | boolean = 'Colombia';
 
   private destroyed$ = new Subject();
 
@@ -28,7 +31,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
 
-  ngOnInit(): void {
+  async ngOnInit() {
+
+    // verificar si hay un pais guardado en el localstorage y lo seteamos al input 
+    if ( localStorage.getItem('country') && localStorage.getItem('country') !== null ) {
+          this.paiseName = await verifyCountryName( localStorage.getItem('country') );
+    }
 
     // identificar cualquier cambio en la propiedad userSearch
     this.userSearch.valueChanges
@@ -74,7 +82,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     for ( const [index, pais] of paises.entries() ) {
           if ( pais.nombreSP.toLowerCase() === this.userSearch.value.toLowerCase() ) {
-                this.mainService.pais.emit( { paisApi: pais.nombreAPI, paisNameEsp: pais.nombreSP} );
+                this.mainService.pais.emit( { paisApi: pais.nombreAPI, paisNameEsp: pais.nombreSP } );
           }
     }
   }

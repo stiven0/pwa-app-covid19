@@ -1,0 +1,31 @@
+
+.container_initial {
+    margin: 13px auto;
+}
+
+.container-canvas {
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.chartjs-render-monitor {
+    height: 210px !important;
+}
+
+.container_button {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.container_button button {
+    display: block;
+    margin: auto;
+    width: 70%;
+    background-color: rgb(220, 236, 236);
+}
+
+.mat-spinner {
+    display: block;
+    margin: 13px auto; 
+}

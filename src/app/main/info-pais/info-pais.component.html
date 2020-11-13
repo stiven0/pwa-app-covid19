@@ -14,7 +14,7 @@
             
             <mat-divider></mat-divider>   
             
-            <p>{{ pais.TotalConfirmed | number }}</p>
+            <p>{{ pais.TotalConfirmed | number | formatNumber }}</p>
         </section>
 
         <section class="total-recuperados">
@@ -25,7 +25,7 @@
             
             <mat-divider></mat-divider>   
             
-            <p>{{ pais.TotalRecovered | number }}</p>
+            <p>{{ pais.TotalRecovered | number | formatNumber }}</p>
         </section>
 
         <section class="total-recuperados">
@@ -36,7 +36,7 @@
             
             <mat-divider></mat-divider>   
             
-            <p>{{ pais.TotalDeaths | number }}</p>
+            <p>{{ pais.TotalDeaths | number | formatNumber }}</p>
         </section>
 
         <section class="total-recuperados">
@@ -47,7 +47,7 @@
             
             <mat-divider></mat-divider>   
             
-            <p>{{ pais.NewConfirmed | number }}</p>
+            <p>{{ pais.NewConfirmed | number | formatNumber }}</p>
         </section>
 
         <section class="total-recuperados">
@@ -58,7 +58,7 @@
             
             <mat-divider></mat-divider>   
             
-            <p>{{ pais.NewRecovered | number }}</p>
+            <p>{{ pais.NewRecovered | number | formatNumber }}</p>
         </section>
 
         <section class="total-recuperados">
@@ -69,7 +69,7 @@
             
             <mat-divider></mat-divider>   
             
-            <p>{{ pais.NewDeaths | number }}</p>
+            <p>{{ pais.NewDeaths | number | formatNumber }}</p>
         </section>
 
     </div>

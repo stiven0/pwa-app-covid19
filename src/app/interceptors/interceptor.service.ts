@@ -26,7 +26,7 @@ export class InterceptorMainService implements HttpInterceptor {
     }
 
     manejarError( error: HttpResponse<any> ) {
-        console.log(error);
+        // console.log(error);
         if ( error instanceof HttpErrorResponse ) {
                 return throwError( { errorPeticionRed: true } );
         }

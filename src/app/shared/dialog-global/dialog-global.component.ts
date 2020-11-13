@@ -27,7 +27,6 @@ export class DialogGlobalComponent implements OnInit {
         this.cd.markForCheck();
       },
       error => {
-        console.log(error);
         if (error.errorPeticionRed) { this.errorRed = true; }
 
         this.cd.markForCheck();

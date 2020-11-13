@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +16,7 @@ import { SharedModule } from '@shared/shared.module';
 import { InterceptorMainService } from '@interceptors/interceptor.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app.routing.module';
 
 
 @NgModule({
@@ -29,6 +31,7 @@ import { environment } from '../environments/environment';
     AngularMaterialModule,
     SharedModule,
     ChartsModule,
+    AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
@@ -36,6 +39,10 @@ import { environment } from '../environments/environment';
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorMainService,
       multi: true
+    },
+    {
+      provide: APP_BASE_HREF,
+      useValue: '/'
     }
   ],
   bootstrap: [AppComponent]

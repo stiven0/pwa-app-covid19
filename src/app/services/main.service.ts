@@ -14,9 +14,11 @@ import { PaisAPI, InfoPaisesGlobal, PaisStats } from '@interface/paises';
 export class MainService {
 
     pais: EventEmitter<{ paisApi: string, paisNameEsp: string }> = new EventEmitter();
+
     private urlAPI: string = 'https://api.covid19api.com/';
 
-    constructor( private http: HttpClient) {}
+    constructor( private http: HttpClient) {
+    }
 
     getInfoVirusGlobal(): Observable<InfoPaisesGlobal> {
         return this.http.get( `${this.urlAPI}summary` )
@@ -39,9 +41,17 @@ export class MainService {
     }
 
     getCountryStats( pais: string, year: number, month: number, day: number ): Observable<PaisStats[]> {
-        const urlStatsCountry = `total/country/${pais}/status/confirmed?from=2020-03-01T00:00:00Z&to=${year}-${month}-${day}T00:00:00Z`;
+        const urlStatsCountry = `total/country/${pais}/status/confirmed?from=2020-01-01T00:00:00Z&to=${year}-${month}-${day}T00:00:00Z`;
 
         return this.http.get<PaisStats[]>(`${ this.urlAPI }${ urlStatsCountry }`);
+    }
+
+    saveCountryStorage( country: string ) {
+        localStorage.setItem('country', country);
+    }
+
+    getCountryStorage(): string | null {
+        return JSON.parse( localStorage.getItem('country') ) || null;
     }
 
 

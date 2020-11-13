@@ -1,7 +1,7 @@
 <header class="container-principal">
     <section class="example-form">
         <input 
-        placeholder="Colombia" 
+        [placeholder]=" paiseName " 
         [matAutocomplete]="auto" 
         [formControl]="userSearch" 
         (keyup.enter)="enterInput($event)" />

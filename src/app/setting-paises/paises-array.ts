@@ -1,7 +1,7 @@
 import { Paises } from '../interface/paises';
 
 export const paises: Paises[] = [
-    { nombreAPI: 'Afganistán',                      nombreSP: 'Afghanistan' },
+    { nombreAPI: 'Afghanistan',                     nombreSP: 'Afganistan' },
     { nombreAPI: 'Albania',                         nombreSP: 'Albania' },
     { nombreAPI: 'Andorra',                         nombreSP: 'Andorra' },
     { nombreAPI: 'Angola',                          nombreSP: 'Angola' },
@@ -149,3 +149,22 @@ export const paises: Paises[] = [
     { nombreAPI: 'Zambia',                          nombreSP: 'Zambia' },
     { nombreAPI: 'Zimbabwe',                        nombreSP: 'Zimbabue' }
 ];
+
+
+export const verifyCountryName = ( name: string ): Promise<boolean | string> => {
+
+    return new Promise( resolve => {
+
+        paises.forEach( (country) => {
+
+        if ( name.toLocaleLowerCase() === country.nombreAPI.toLocaleLowerCase() ) {
+              resolve(country.nombreSP);
+        }
+
+      });
+
+        resolve(false);
+
+    });
+
+};

@@ -1,0 +1,62 @@
+.container-canvas {
+    width: 85%;
+    display: block;
+    margin: auto;
+}
+
+.mat-dialog-title {
+    text-align: center;
+}
+
+.mat-spinner {
+    display: block;
+    margin: auto;  
+}
+
+.container-canvas-two {
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.container_button {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.container_button button {
+    display: block;
+    margin: auto;
+    width: 70%;
+    background-color: rgb(220, 236, 236);
+}
+
+
+/* responsive */
+@media screen and (max-width: 760px) {
+
+    .container-canvas-two .chartjs-render-monitor {
+        height: 210px !important;
+    }
+    
+}
+
+@media screen and (min-width: 760px) {
+
+    .container-canvas-two .chartjs-render-monitor {
+        height: 450px !important;
+        margin: auto;
+        width: 70% !important;
+    }
+
+    .container_button {
+        margin: 30px auto;
+        margin-bottom: 30px;
+        width: 70%;
+    }
+
+    /* .container_button button {
+        width: 60;
+    } */
+
+}

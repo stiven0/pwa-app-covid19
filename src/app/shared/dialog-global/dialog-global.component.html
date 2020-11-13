@@ -9,7 +9,7 @@
   
     <mat-list-item>
       <h4 mat-line class="title-item">Total casos confirmados</h4>
-      <h4 mat-line>{{ infoVirusGlobal.TotalConfirmed | number }}</h4>
+      <h4 mat-line>{{ infoVirusGlobal.TotalConfirmed | number | formatNumber }}</h4>
       <mat-icon mat-list-icon>
         <i class="fas fa-male"></i>
       </mat-icon>
@@ -17,7 +17,7 @@
 
     <mat-list-item>
       <h4 mat-line class="title-item">Total casos recuperados</h4>
-      <h4 mat-line>{{ infoVirusGlobal.TotalRecovered | number }}</h4>
+      <h4 mat-line>{{ infoVirusGlobal.TotalRecovered | number | formatNumber }}</h4>
       <mat-icon mat-list-icon>
         <i class="fas fa-hand-rock"></i>
       </mat-icon>
@@ -25,7 +25,7 @@
 
     <mat-list-item>
       <h4 mat-line class="title-item">Total casos fallecidos</h4>
-      <h4 mat-line>{{ infoVirusGlobal.TotalDeaths | number }}</h4>
+      <h4 mat-line>{{ infoVirusGlobal.TotalDeaths | number | formatNumber }}</h4>
       <mat-icon mat-list-icon>
         <i class="fas fa-virus"></i>
       </mat-icon>

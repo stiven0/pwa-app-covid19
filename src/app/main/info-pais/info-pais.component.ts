@@ -1,12 +1,14 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, tap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 
 import { MainService } from '@services/main.service';
 import { PaisAPI } from '@interface/paises';
 import { DialogStatsComponent } from '@shared/dialog-stats/dialog-stats.component';
+import { verifyCountryName } from '@settings/paises-array';
 
 
 @Component({
@@ -23,12 +25,23 @@ export class InfoPaisComponent implements OnInit, OnDestroy {
 
   private destroyed$ = new Subject();
 
-  constructor( private mainService: MainService, public dialog: MatDialog,
-               private cd: ChangeDetectorRef  ) { }
+  constructor(  private mainService: MainService,
+                public  dialog: MatDialog,
+                private cd: ChangeDetectorRef,
+                private router: Router ) { }
 
-  ngOnInit(): void {
-    // console.log(navigator.userAgent);
-    this.getPaisInfoVirus();
+  async ngOnInit() {
+
+    if ( localStorage.getItem('country') && localStorage.getItem('country') !== null ) {
+          const country = localStorage.getItem('country');
+          (this.paisNameEsp as any) = await verifyCountryName( country );
+          this.getPaisInfoVirus( country );
+
+    } else {
+        this.getPaisInfoVirus();
+    }
+
+
 
     // suscripcion a evento originado en el buscador
     this.mainService.pais
@@ -38,6 +51,7 @@ export class InfoPaisComponent implements OnInit, OnDestroy {
 
       this.getPaisInfoVirus( paisApi );
     });
+
   }
 
   ngOnDestroy(): void {
@@ -46,6 +60,7 @@ export class InfoPaisComponent implements OnInit, OnDestroy {
   }
 
   getPaisInfoVirus( paisReceived: string = 'Colombia' ) {
+
     if ( this.pais && this.pais.Country === paisReceived ) { return; }
 
     this.mainService.getInfoVirusCountry( paisReceived ).subscribe(
@@ -54,6 +69,8 @@ export class InfoPaisComponent implements OnInit, OnDestroy {
         if (this.errorRed) { this.errorRed = false; }
 
         this.pais = country[0];
+        this.mainService.saveCountryStorage( this.pais.Country );
+
 
         // le decimos a angular que active el change detection
         this.cd.markForCheck();
@@ -66,10 +83,19 @@ export class InfoPaisComponent implements OnInit, OnDestroy {
   }
 
   openStats() {
+
+    if ( window.innerWidth <= 610) {
+          this.router.navigate( ['/stats'], { queryParams: { paisName: this.pais.Country } } );
+          return;
+    }
+
+
     this.dialog.open(DialogStatsComponent, {
       width: '100%',
       data: { paisApi: this.pais.Country, paisEsp: this.paisNameEsp }
     });
   }
+
+
 
 }

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorRedComponent implements OnInit {
 
-  constructor() { }
+  img: string;
+
+  constructor() {
+    this.img = 'assets/img/error.jpg';
+  }
 
   ngOnInit(): void {
+
+
   }
 
 }

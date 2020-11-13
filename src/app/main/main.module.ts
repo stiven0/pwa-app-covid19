@@ -10,6 +10,7 @@ import { AngularMaterialModule } from '@angular-material/angular-material.module
 import { HeaderComponent } from '@main/header/header.component';
 import { InfoPaisComponent } from '@main/info-pais/info-pais.component';
 import { SharedModule } from '@shared/shared.module';
+import { RoutingMainModule } from './routing.main.module';
 
 @NgModule({
 
@@ -17,7 +18,8 @@ import { SharedModule } from '@shared/shared.module';
         CommonModule,
         AngularMaterialModule,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
+        RoutingMainModule
     ],
     declarations: [
         HeaderComponent,
